@@ -12,7 +12,24 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        "prettierd",
+        "typescript-language-server",
+        "pyright",
+        "eslint-lsp",
+        "isort",
+        "black",
+      },
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
