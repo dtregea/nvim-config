@@ -42,6 +42,7 @@ return {
         "javascript",
         "python",
         "bash",
+        "markdown",
       },
     },
   },

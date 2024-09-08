@@ -35,3 +35,22 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Solargraph setup with ruby 2.7 and rails support
+-- Install ruby 2.7.1 with rbenv
+-- Install solargraph with `gem install solargraph`, no sudo
+-- Similarly, install solargraph-rails, no sudo
+-- Solargraph: 0.50.0, Solargraph Rails: 1.10.0
+-- Add a .solargraph.yml file in the root of your projects, run "solargraph config ." in project root
+-- Specify solargraph-rails in the plugins section of solargraph.yml
+-- Run 'yard gems'
+require("lspconfig").solargraph.setup {
+  cmd = { os.getenv "HOME" .. "/.rbenv/shims/solargraph", "stdio" },
+  filetypes = { "ruby" },
+  root_dir = require("lspconfig/util").root_pattern("Gemfile", ".git"),
+  settings = {
+    solargraph = {
+      diagnostics = true,
+    },
+  },
+}
